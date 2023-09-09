@@ -17,7 +17,7 @@ export default {
 
 <style>
 #apptemplate {
-  width: 40%;
+  width: 90%;
   border: 1px black solid;
   margin: 100px auto;
 }

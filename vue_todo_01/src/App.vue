@@ -24,6 +24,6 @@ export default {
   border: 1px black solid;
   /* margin-top: 60px; */
   width: 1000px;
-  height: 500px;
+  //height: 500px;
 }
 </style>
