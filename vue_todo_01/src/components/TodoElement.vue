@@ -1,15 +1,22 @@
 <template>
   <div>
     <div class="container">
-      <div>
-        <input type="checkbox" v-model="completed">
+      <div class="item">
+        <input
+            type="checkbox"
+            @change="$emit('change-completed')"
+            :checked="isDone">
       </div>
-      <div>
-        {{ this.todoTitle }}
+      <div class="item">
+        {{ this.title }}
       </div>
-      <div>
+      <div
+          class="item"
+          @click="$emit('edit-todo', 'testEditValue')">editTest
+      </div>
+      <div class="item">
         <font-awesome-icon
-            @click="$emit('deleteTodo', this.index)"
+            @click="$emit('delete-todo')"
             icon="fa-regular fa-trash-can"/>
       </div>
     </div>
@@ -19,11 +26,15 @@
 <script>
 export default {
   data: function () {
-    return {
-      completed: this.todoCompleted
-    }
+    return {}
   },
-  props: ['index', 'todoTitle', 'todoId', 'todoCompleted'],
+  props: ['id', 'title', 'completed'],
+  computed: {
+    isDone() {
+      return this.completed;
+    }
+  }
+  // TODO: edit 기능 아직 미구현
 };
 </script>
 
@@ -31,5 +42,10 @@ export default {
 .container {
   display: flex;
   flex-direction: row;
+}
+
+.item {
+  padding: 5px;
+//margin: 5px;
 }
 </style>
